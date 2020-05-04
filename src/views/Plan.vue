@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Full-Stack</h1>
+    <h1>{{msg}}</h1>
     <span>Wochentag</span>
   <select name="Wochentag" id="selectBox">
           <option>Montag</option>

@@ -24,13 +24,13 @@ export default {
   },
   data: function () {
     return {
-       loadedData: undefined,
+      loadedData: undefined,
     }
   },
   mounted() {
     axios.get("http://localhost:3000/api/getData")
       .then(response => {
-        this.loadedData = response;
+        this.loadedData = response.data;
       })
       .catch(err => {
         console.log(err)

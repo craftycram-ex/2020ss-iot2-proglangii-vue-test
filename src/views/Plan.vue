@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{msg}}</h1>
+    {{loadedData}}
     <Dropdown></Dropdown>
     <List></List>
   </div>
@@ -10,6 +11,7 @@
 
 import Dropdown from '../components/Dropdown.vue'
 import List from '../components/List.vue'
+import axios from 'axios'
 
 export default {
   name: 'Plan',
@@ -19,6 +21,20 @@ export default {
   components: {
     Dropdown,
     List
+  },
+  data: function () {
+    return {
+       loadedData: undefined,
+    }
+  },
+  mounted() {
+    axios.get("http://localhost:3000/api/getData")
+      .then(response => {
+        this.loadedData = response;
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 }
 </script>

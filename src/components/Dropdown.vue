@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span>Wochentag</span>
   <select name="Wochentag" id="selectBox">
           <option>Montag</option>
           <option>Dienstag</option>

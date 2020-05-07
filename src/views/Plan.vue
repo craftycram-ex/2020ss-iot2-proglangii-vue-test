@@ -1,16 +1,25 @@
 <template>
   <div>
     <h1>{{msg}}</h1>
-    <span>Wochentag</span>
+    <Dropdown></Dropdown>
+    <List></List>
     <!-- Add components here -->
   </div>
 </template>
 
 <script>
+
+import Dropdown from '../components/Dropdown.vue'
+import List from '../components/List.vue'
+
 export default {
   name: 'Plan',
   props: {
     msg: String
+  },
+  components: {
+    Dropdown,
+    List
   }
 }
 </script>

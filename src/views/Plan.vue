@@ -3,7 +3,6 @@
     <h1>{{msg}}</h1>
     <Dropdown></Dropdown>
     <List></List>
-    <!-- Add components here -->
   </div>
 </template>
 

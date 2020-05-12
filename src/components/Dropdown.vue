@@ -14,7 +14,9 @@
 <script>
 export default {
   name: 'Dropdown',
-  props: {}
+  props: {
+    data: String
+  }
 }
 </script>
 

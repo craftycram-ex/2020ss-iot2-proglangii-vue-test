@@ -11,6 +11,7 @@
           <tr>Name</tr>
           <tr>Upvotes</tr>
         </table>
+        {{tableData}}
   </div>
 </template>
 
@@ -18,7 +19,7 @@
 export default {
   name: 'List',
   props: {
-    data: String
+    tableData: String
   }
 }
 </script>

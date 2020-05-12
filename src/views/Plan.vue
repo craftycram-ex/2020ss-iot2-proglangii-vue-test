@@ -2,7 +2,7 @@
   <div>
     <h1>{{msg}}</h1>
     <Dropdown :days="dropdownData"></Dropdown>
-    <List></List>
+    <List :tableData="loadedData"></List>
   </div>
 </template>
 

@@ -8,6 +8,7 @@
           <option>Donnerstag</option>
           <option>Freitag</option>
         </select>
+        {{days}}
   </div>
 </template>
 
@@ -15,7 +16,7 @@
 export default {
   name: 'Dropdown',
   props: {
-    data: String
+    days: Array
   }
 }
 </script>

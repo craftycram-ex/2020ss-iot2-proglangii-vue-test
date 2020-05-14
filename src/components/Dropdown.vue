@@ -2,13 +2,8 @@
   <div>
     <span>Wochentag</span>
   <select name="Wochentag" id="selectBox">
-          <option>Montag</option>
-          <option>Dienstag</option>
-          <option>Mittwoch</option>
-          <option>Donnerstag</option>
-          <option>Freitag</option>
+          <option v-for="day in days" :key="day">{{day}}</option>
         </select>
-        {{days}}
   </div>
 </template>
 

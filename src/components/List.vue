@@ -24,6 +24,8 @@
           </tr>
 
         </table>
+
+        <Mahlzeit></Mahlzeit>
       <!--
       <div v-for="item in tableData" :key="item"><pre style="text-align:left;">{{item}}</pre></div>
       -->
@@ -31,10 +33,15 @@
 </template>
 
 <script>
+
+import Mahlzeit from '../components/Mahlzeit.vue'
 export default {
   name: 'List',
   props: {
     tableData: String
+  },
+  components: {
+    Mahlzeit
   }
 }
 </script>

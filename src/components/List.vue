@@ -10,8 +10,9 @@
           <th>Labels</th>
           <th>Name</th>
           <th>Upvotes</th>
+          
+          <Mahlzeit v-for="mealsFromTable in tableData" :key="mealsFromTable" :meals='mealsFromTable'></Mahlzeit>
         </table>
-        <Mahlzeit v-for="mealsFromTable in tableData" :key="mealsFromTable" :meals='mealsFromTable'></Mahlzeit>
       <!--
       <div v-for="item in tableData" :key="item"><pre style="text-align:left;">{{item}}</pre></div>
       -->

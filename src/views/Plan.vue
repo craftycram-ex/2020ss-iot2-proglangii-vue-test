@@ -32,7 +32,7 @@ export default {
       .then(response => {
         this.loadedData = response.data;
         this.dropdownData = this.loadedData.map((essen) => essen.day);
-        this.dropdownData = this.dropdownData.filter((a, b) => this.dropdownData.indexOf(a) === b)
+        this.dropdownData = this.dropdownData.filter((a, b) => this.dropdownData.indexOf(a) === b);
       })
       .catch(err => {
         console.log(err)

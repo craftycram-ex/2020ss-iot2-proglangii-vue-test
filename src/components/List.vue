@@ -12,7 +12,14 @@
     <th>Upvotes</th>
     -->
 
-    <Mahlzeit class="mahlzeit" v-for="mealsFromTable in tableData" :key="mealsFromTable" :meals='mealsFromTable'></Mahlzeit>
+  <b-card-group columns>
+    <b-card v-for="meal in tableData" :key="meal" img-src="https://picsum.photos/1024/480/?image=54">
+      <b-card-text>
+      <Mahlzeit class="mahlzeit" :meals='meal'></Mahlzeit>
+      </b-card-text>
+    </b-card>
+  </b-card-group>
+
     <!--
     <div v-for="item in tableData" :key="item"><pre style="text-align:left;">{{item}}</pre></div>
     -->

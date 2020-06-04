@@ -13,10 +13,12 @@
               <b-button-group class="mr-1">
                 <b-button title="upvote">
                   <b-icon-hand-thumbs-up v-on:click="vote(meal, 'up')" class="vote-icn"></b-icon-hand-thumbs-up>
+                  ({{meal.upvotes}})
                 </b-button>
 
                 <b-button title="downvote">
                   <b-icon-hand-thumbs-down v-on:click="vote(meal, 'down')" class="vote-icn"></b-icon-hand-thumbs-down>
+                  ({{meal.downvotes}})
                 </b-button>
               </b-button-group>
             </b-btn-toolbar>
@@ -43,7 +45,7 @@ export default {
   methods: {
     vote(meal, vote) {
       axios.post("http://localhost:3000/api/vote", {
-        mealName: meal.name,
+        mealId: meal.id,
         vote: vote
       })
       .catch(err => {

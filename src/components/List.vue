@@ -13,9 +13,9 @@
     -->
 
   <b-card-group columns>
-    <b-card v-for="meal in tableData" :key="meal" img-src="https://picsum.photos/1024/480/?image=54">
+    <b-card v-for="meal in tableData" :key="meal" img-src="https://picsum.photos/200">
       <b-card-text>
-      <Mahlzeit class="mahlzeit" :meals='meal'></Mahlzeit>
+      <Mahlzeit class="mahlzeit" :meal='meal'></Mahlzeit>
       </b-card-text>
     </b-card>
   </b-card-group>

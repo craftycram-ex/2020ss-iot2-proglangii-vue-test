@@ -1,29 +1,55 @@
 <template>
       <div>
-          <h5>{{meals.category}}</h5>
+          <h5>
+            {{meal.category}}
+          </h5>
           <hr>
-          <h3>{{meals.name}}</h3>
-          {{meals.cost.students}} €<br>
-          <div class="ci" v-for="ci in meals.contentInformation" :key="ci"><small>{{ci}}</small></div>
+          <h3>{{meal.name}}</h3>
+          {{meal.cost.students}} €<br>
+          <div class="ci" v-for="ci in meal.contentInformation" :key="ci"><small>{{ci}}</small></div>
 
           <br>
+          <b-btn-toolbar class="vote-btns">
+              <b-button-group class="mr-1">
+                <b-button title="upvote">
+                  <b-icon-hand-thumbs-up v-on:click="vote(meal, 'up')" class="vote-icn"></b-icon-hand-thumbs-up>
+                </b-button>
+
+                <b-button title="downvote">
+                  <b-icon-hand-thumbs-down v-on:click="vote(meal, 'down')" class="vote-icn"></b-icon-hand-thumbs-down>
+                </b-button>
+              </b-button-group>
+            </b-btn-toolbar>
           <!--
-          {{meals.cost}}
-          {{meals.day}}
-          {{meals.downvotes}}
-          {{meals.id}}
-          {{meals.labels}}
-          {{meals.upvotes}}
+          {{meal.cost}}
+          {{meal.day}}
+          {{meal.downvotes}}
+          {{meal.id}}
+          {{meal.labels}}
+          {{meal.upvotes}}
           -->
           
       </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Mahlzeit',
   props: {
-    meals: Object
+    meal: Object
+  },
+  methods: {
+    vote(meal, vote) {
+      axios.post("http://localhost:3000/api/vote", {
+        mealName: meal.name,
+        vote: vote
+      })
+      .catch(err => {
+        console.log(err)
+      });
+    }
   }
 }
 </script>
@@ -34,5 +60,9 @@ export default {
   font-size: 8pt;
   display: inline-block;
   margin-right: 10px;
+}
+
+.vote-btns {
+  align-content: right;
 }
 </style>

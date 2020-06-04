@@ -13,7 +13,7 @@
     -->
 
   <b-card-group columns>
-    <b-card v-for="meal in tableData" :key="meal" img-src="https://picsum.photos/200">
+    <b-card v-for="meal in tableData" :key="meal.id" img-src="https://picsum.photos/200">
       <b-card-text>
       <Mahlzeit class="mahlzeit" :meal='meal'></Mahlzeit>
       </b-card-text>

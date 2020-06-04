@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   name: 'Mahlzeit',
@@ -44,6 +44,9 @@ export default {
   },
   methods: {
     vote(meal, vote) {
+      this.$socket.emit('broadcastLike', meal.name, vote, 'von Marc')
+      console.log(`${meal.name} [${meal.id}]: ${vote}`)
+      /*
       axios.post("http://localhost:3000/api/vote", {
         mealId: meal.id,
         vote: vote
@@ -51,7 +54,30 @@ export default {
       .catch(err => {
         console.log(err)
       });
+      */
     }
+  },
+  sockets: {
+    connect() {
+      // Fired when the socket connects.
+      console.log('connected')
+    },
+
+    disconnect() {
+      console.log('disconnected')
+    },
+
+    // Fired when the server sends something on the "messageChannel" channel.
+    messageChannel(data) {
+      console.log('message-channel')
+      console.log(data);
+    }
+  },
+  mounted() {
+    this.sockets.subscribe('broadcastLike', (data) => {
+      console.log('like')
+      console.log(data);
+    });
   }
 }
 </script>

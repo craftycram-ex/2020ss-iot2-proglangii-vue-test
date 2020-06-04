@@ -32,7 +32,7 @@ import Mahlzeit from '../components/Mahlzeit.vue'
 export default {
   name: 'List',
   props: {
-    tableData: String
+    tableData: Array
   },
   components: {
     Mahlzeit

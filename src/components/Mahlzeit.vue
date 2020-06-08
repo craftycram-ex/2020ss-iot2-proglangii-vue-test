@@ -11,13 +11,13 @@
           <br>
           <b-btn-toolbar class="vote-btns">
               <b-button-group class="mr-1">
-                <b-button title="upvote">
-                  <b-icon-hand-thumbs-up v-on:click="vote(meal, 'up')" class="vote-icn"></b-icon-hand-thumbs-up>
+                <b-button title="upvote" v-on:click="vote(meal, 'up')">
+                  <b-icon-hand-thumbs-up class="vote-icn"></b-icon-hand-thumbs-up>
                   ({{meal.upvotes}})
                 </b-button>
 
-                <b-button title="downvote">
-                  <b-icon-hand-thumbs-down v-on:click="vote(meal, 'down')" class="vote-icn"></b-icon-hand-thumbs-down>
+                <b-button title="downvote" v-on:click="vote(meal, 'down')">
+                  <b-icon-hand-thumbs-down class="vote-icn"></b-icon-hand-thumbs-down>
                   ({{meal.downvotes}})
                 </b-button>
               </b-button-group>

@@ -12,13 +12,13 @@
     <th>Upvotes</th>
     -->
 
-  <b-card-group columns>
-    <b-card v-for="meal in tableData" :key="meal.id" img-src="https://picsum.photos/200">
+  <b-row class="mahlzeiten">
+    <b-card v-for="meal in tableData" :key="meal.id" tag="article" img-src="https://picsum.photos/600/300">
       <b-card-text>
-      <Mahlzeit class="mahlzeit" :meal='meal'></Mahlzeit>
+      <Mahlzeit class="nb-5"  :meal='meal'></Mahlzeit>
       </b-card-text>
     </b-card>
-  </b-card-group>
+  </b-row>
 
     <!--
     <div v-for="item in tableData" :key="item"><pre style="text-align:left;">{{item}}</pre></div>
@@ -43,11 +43,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .mahlzeit {
-
-
-    max-width: 500px;
+    margin-top: 15vh;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
+    padding: 0 calc(69px/0.3);
   }
 </style>

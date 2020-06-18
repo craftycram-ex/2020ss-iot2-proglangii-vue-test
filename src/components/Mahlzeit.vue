@@ -11,12 +11,12 @@
           <br>
           <b-btn-toolbar class="vote-btns">
               <b-button-group class="mr-1">
-                <b-button title="upvote" v-on:click="vote(meal, 'up')">
+                <b-button title="upvote" v-on:click="voteUp(meal)">
                   <b-icon-hand-thumbs-up class="vote-icn"></b-icon-hand-thumbs-up>
                   ({{meal.upvotes}})
                 </b-button>
 
-                <b-button title="downvote" v-on:click="vote(meal, 'down')">
+                <b-button title="downvote" v-on:click="voteDown(meal)">
                   <b-icon-hand-thumbs-down class="vote-icn"></b-icon-hand-thumbs-down>
                   ({{meal.downvotes}})
                 </b-button>
@@ -43,9 +43,22 @@ export default {
     meal: Object
   },
   methods: {
-    vote(meal, vote) {
-      this.$socket.emit('broadcastLike', meal.name, vote, 'von Marc')
-      console.log(`${meal.name} [${meal.id}]: ${vote}`)
+    voteUp(meal) {
+      this.$socket.emit('broadcastLike', meal.id)
+      /*
+      axios.post("http://localhost:3000/api/vote", {
+        mealId: meal.id,
+        vote: vote
+      })
+      .catch(err => {
+        console.log(err)
+      });
+      */
+    },
+    voteDown(meal) {
+      // this.$socket.emit('broadcastLike', meal.name, vote, 'von Marc')
+      this.$socket.emit('broadcastDislike', meal.id)
+      console.log(`${meal.name} [${meal.id}]`)
       /*
       axios.post("http://localhost:3000/api/vote", {
         mealId: meal.id,
@@ -75,7 +88,18 @@ export default {
   },
   mounted() {
     this.sockets.subscribe('broadcastLike', (data) => {
+      if (this.meal.id === data) {
+        this.meal.upvote++;
+      }
       console.log('like')
+      console.log(data);
+    });
+
+    this.sockets.subscribe('broadcastDislike', (data) => {
+      if (this.meal.id === data) {
+        this.meal.downvote++;
+      }
+      console.log('dislike')
       console.log(data);
     });
   }
